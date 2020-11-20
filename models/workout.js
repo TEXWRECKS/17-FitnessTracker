@@ -26,13 +26,9 @@ const WorkoutSchema = new Schema({
             sets: {type: Number, required: false},
             // If the above is true (exercises), how many reps did you do per set?
             reps: {type: Number, required: false},
-            
-            
         }
     ]
-  
-  
-  });
+});
   
   const workout = mongoose.model("workout", WorkoutSchema);
   
