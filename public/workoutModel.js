@@ -49,7 +49,7 @@ function renderWorkoutSummary(summary) {
 
   const workoutKeyMap = {
     date: "Date",
-    totalDuration: "Total Workout Time",
+    totalDuration: "Total Workout Duration",
     numExercises: "Exercises Performed",
     totalWeight: "Total Weight Lifted",
     totalSets: "Total Sets Performed",

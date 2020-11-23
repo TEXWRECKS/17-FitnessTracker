@@ -7,85 +7,121 @@ mongoose.connect("mongodb://localhost/workout", {
 });
 
 let workoutSeed = [
-  { day: new Date().setDate(new Date().getDate()-10),
+  {
+    day: new Date().setDate(new Date().getDate()-10),
     exercises: [
-      { type: "resistance",
+      {
+        type: "resistance",
         name: "Bicep Curl",
-        time: 20,
+        duration: 20,
         weight: 100,
         reps: 10,
-        sets: 4}
-    ]},
-  { day: new Date().setDate(new Date().getDate()-9),
+        sets: 4
+      }
+    ]
+  },
+  {
+    day: new Date().setDate(new Date().getDate()-9),
     exercises: [
-      { type: "resistance",
+      {
+        type: "resistance",
         name: "Lateral Pull",
-        time: 20,
+        duration: 20,
         weight: 300,
         reps: 10,
-        sets: 4}
-    ]},
-  { day: new Date().setDate(new Date().getDate()-8),
+        sets: 4
+      }
+    ]
+  },
+  {
+    day: new Date().setDate(new Date().getDate()-8),
     exercises: [
-      { type: "resistance",
+      {
+        type: "resistance",
         name: "Push Press",
-        time: 25,
+        duration: 25,
         weight: 185,
         reps: 8,
-        sets: 4}
-    ]},
-  { day: new Date().setDate(new Date().getDate()-7),
+        sets: 4
+      }
+    ]
+  },
+  {
+    day: new Date().setDate(new Date().getDate()-7),
     exercises: [
-      { type: "cardio",
+      {
+        type: "cardio",
         name: "Running",
-        time: 25,
-        distance: 4}
-    ]},
-  { day: new Date().setDate(new Date().getDate()-6),
+        duration: 25,
+        distance: 4
+      }
+    ]
+  },
+  {
+    day: new Date().setDate(new Date().getDate()-6),
     exercises: [
-      { type: "resistance",
+      {
+        type: "resistance",
         name: "Bench Press",
-        time: 20,
+        duration: 20,
         weight: 285,
         reps: 10,
-        sets: 4}
-    ]},
-  { day: new Date().setDate(new Date().getDate()-5),
+        sets: 4
+      }
+    ]
+  },
+  {
+    day: new Date().setDate(new Date().getDate()-5),
     exercises: [
-      { type: "resistance",
+      {
+        type: "resistance",
         name: "Bench Press",
-        time: 20,
+        duration: 20,
         weight: 300,
         reps: 10,
-        sets: 4}
-    ]},
-  { day: new Date(new Date().setDate(new Date().getDate() - 4)),
+        sets: 4
+      }
+    ]
+  },
+  {
+    day: new Date(new Date().setDate(new Date().getDate() - 4)),
     exercises: [
-      { type: "resistance",
+      {
+        type: "resistance",
         name: "Quad Press",
-        time: 30,
+        duration: 30,
         weight: 300,
         reps: 10,
-        sets: 4}
-    ]},
-  { day: new Date(new Date().setDate(new Date().getDate() - 3)),
+        sets: 4
+      }
+    ]
+  },
+  {
+    day: new Date(new Date().setDate(new Date().getDate() - 3)),
     exercises: [
-      { type: "resistance",
+      {
+        type: "resistance",
         name: "Bench Press",
-        time: 20,
+        duration: 20,
         weight: 300,
         reps: 10,
-        sets: 4}
-    ]},
-  { day: new Date(new Date().setDate(new Date().getDate() - 2)),
+        sets: 4
+      }
+    ]
+  },
+  {
+    day: new Date(new Date().setDate(new Date().getDate() - 2)),
     exercises: [
-      { type: "resistance",
+      {
+        type: "resistance",
         name: "Military Press",
-        time: 20,
+        duration: 20,
         weight: 300,
         reps: 10,
-        sets: 4}
-    ]}
+        sets: 4
+      }
+    ]
+  }
 ];
 
 db.Workout.deleteMany({})
