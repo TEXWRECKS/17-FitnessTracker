@@ -1,49 +1,53 @@
-const router = require("express").Router();
 const WorkoutDB = require("../models/workout");
 
-router.post("/api/workouts", ({ body }, res) => {
-  WorkoutDB.create(body)
-    .then(dbWorkout => {
-      res.json(dbWorkout);
+module.exports = (app) => {
+
+// Posts a workout
+app.post("/api/workouts", ({ body }, res) => {
+  WorkoutDB.create({ body })
+    .then((newWorkout) => {
+      res.json(newWorkout);
     })
-    .catch(err => {
+    .catch((err) => {
       res.status(400).json(err);
     });
 });
 
-router.get("/api/workouts", (req, res) => {
+// Gets the workouts
+app.get("/api/workouts", (req, res) => {
   WorkoutDB.find({})
     // .sort({ date: -1 })
-    .then(dbWorkout => {
+    .then((dbWorkout) => {
       res.json(dbWorkout);
     })
-    .catch(err => {
+    .catch((err) => {
       res.status(400).json(err);
     });
 });
 
-router.get("/api/workouts/range", (req, res) => {
+// Gets workouts within a range of 7 days
+app.get("/api/workouts/range", (req, res) => {
   WorkoutDB.find({}).limit(7)
-  .then(dbWorkout => {
-    res.json(dbWorkout);
+  .then((workoutRange) => {
+    res.json(workoutRange);
   })
-  .catch(err => {
+  .catch((err) => {
     res.status(400).json(err);
   });
 });
 
-router.put("/api/workouts/:id", (req, res) => {
-  // Finding and updating workouts by id, and taking in three arguments...
-  // 1. request - rec.params and rec.body
-  // 2. pushing rec.body to exercises
-  // 3. requiring the response back to the front end to be the new information and ensuring all required validators are required
+// Finding and updating workouts by id
+app.put("/api/workouts/:id", (req, res) => {
+  // Taking in three arguments...
+    // 1. request - rec.params and rec.body
+    // 2. pushing rec.body to exercises
+    // 3. requiring the response back to the front end to be the new information and ensuring all required validators are required
   WorkoutDB.findByIdAndUpdate(req.params.id, {$push:{exercises:req.body}}, {new:true, runValidators:true})
-  .then(dbWorkout => {
-    res.json(dbWorkout);
+  .then((updateWorkout) => {
+    res.json(updateWorkout);
   })
   .catch(err => {
     res.status(400).json(err);
   });
 });
-
-module.exports = router;
+};
